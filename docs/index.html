@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="데이터-로드" class="level3">
 <h3 class="anchored" data-anchor-id="데이터-로드"><strong>[데이터 로드]</strong></h3>
-<div id="310e5ec0" class="cell" data-execution_count="1">
+<div id="719af10a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. 패키지 로드</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -227,17 +227,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 데이터 파일 불러오기, 원본 데이터 복사하기</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">## header: 원본의 두 번째 행 데이터를 열의 이름으로 지정</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">## encoding: UnicodeDecodeError 발생으로 한글 표현 가능한 인코딩 방식인 EUC-KR 지정</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'crime.csv'</span>, header <span class="op">=</span> <span class="dv">1</span>, encoding <span class="op">=</span> <span class="st">'EUC-KR'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df.head()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 원본 데이터 복사하기</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">## deepcopy로 원본유지</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>crime <span class="op">=</span> df.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">## pd.set_option(): 전체 열을 모두 표시하도록 지정</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'crime.csv'</span>, header <span class="op">=</span> <span class="dv">1</span>, encoding <span class="op">=</span> <span class="st">'EUC-KR'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 원본 데이터 복사하기</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">## deepcopy로 원본유지</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>crime <span class="op">=</span> df.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="변수명-변경" class="level3">
 <h3 class="anchored" data-anchor-id="변수명-변경"><strong>[변수명 변경]</strong></h3>
-<div id="5b42e06b" class="cell" data-execution_count="2">
+<div id="2c82aa66" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 열 이름, 원소 이름 변경</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 열 이름 변경</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">### 강력범죄는 s_, 폭력범죄는 g_, 지능범죄는 i_로 시작하도록 변경</span></span>
@@ -284,7 +286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">s_강제추행</th>
 <th data-quarto-table-cell-role="th">s_기타 강간·강제추행등</th>
 <th data-quarto-table-cell-role="th">s_방화</th>
-<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">g_상해</th>
+<th data-quarto-table-cell-role="th">g_폭행</th>
+<th data-quarto-table-cell-role="th">g_체포·감금</th>
+<th data-quarto-table-cell-role="th">g_협박</th>
+<th data-quarto-table-cell-role="th">g_약취·유인</th>
+<th data-quarto-table-cell-role="th">g_폭력행위등</th>
+<th data-quarto-table-cell-role="th">g_공갈</th>
 <th data-quarto-table-cell-role="th">g_손괴</th>
 <th data-quarto-table-cell-role="th">i_직무유기</th>
 <th data-quarto-table-cell-role="th">i_직권남용</th>
@@ -310,7 +318,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2197</td>
 <td>51</td>
 <td>236</td>
-<td>...</td>
+<td>5326</td>
+<td>20195</td>
+<td>168</td>
+<td>2462</td>
+<td>34</td>
+<td>1175</td>
+<td>685</td>
 <td>7452</td>
 <td>105</td>
 <td>96</td>
@@ -334,7 +348,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2263</td>
 <td>48</td>
 <td>263</td>
-<td>...</td>
+<td>5649</td>
+<td>21334</td>
+<td>189</td>
+<td>2530</td>
+<td>27</td>
+<td>1205</td>
+<td>644</td>
 <td>7767</td>
 <td>92</td>
 <td>110</td>
@@ -358,7 +378,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2333</td>
 <td>49</td>
 <td>235</td>
-<td>...</td>
+<td>5395</td>
+<td>21160</td>
+<td>180</td>
+<td>2474</td>
+<td>26</td>
+<td>1088</td>
+<td>604</td>
 <td>7681</td>
 <td>92</td>
 <td>110</td>
@@ -382,7 +408,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2389</td>
 <td>45</td>
 <td>246</td>
-<td>...</td>
+<td>5396</td>
+<td>21181</td>
+<td>192</td>
+<td>2444</td>
+<td>30</td>
+<td>1163</td>
+<td>656</td>
 <td>7514</td>
 <td>114</td>
 <td>110</td>
@@ -406,7 +438,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2547</td>
 <td>55</td>
 <td>212</td>
-<td>...</td>
+<td>5628</td>
+<td>22423</td>
+<td>165</td>
+<td>2408</td>
+<td>26</td>
+<td>1206</td>
+<td>593</td>
 <td>8591</td>
 <td>103</td>
 <td>104</td>
@@ -430,7 +468,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2760</td>
 <td>59</td>
 <td>243</td>
-<td>...</td>
+<td>6267</td>
+<td>26997</td>
+<td>151</td>
+<td>2384</td>
+<td>15</td>
+<td>1662</td>
+<td>457</td>
 <td>9200</td>
 <td>36</td>
 <td>40</td>
@@ -454,7 +498,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2564</td>
 <td>49</td>
 <td>256</td>
-<td>...</td>
+<td>6105</td>
+<td>25977</td>
+<td>162</td>
+<td>2498</td>
+<td>29</td>
+<td>1705</td>
+<td>457</td>
 <td>8479</td>
 <td>39</td>
 <td>33</td>
@@ -469,14 +519,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
-<p>7 rows × 27 columns</p>
 </div>
 </div>
 </div>
 </section>
 <section id="파생변수-추가" class="level3">
 <h3 class="anchored" data-anchor-id="파생변수-추가"><strong>[파생변수 추가]</strong></h3>
-<div id="db509ec9" class="cell" data-execution_count="3">
+<div id="8ef121aa" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 파생변수 추가</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 범죄별 건수 합계 및 총 범죄 건수 합계 파생변수</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>crime <span class="op">=</span> crime.assign(</span>
@@ -509,7 +558,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">s_강제추행</th>
 <th data-quarto-table-cell-role="th">s_기타 강간·강제추행등</th>
 <th data-quarto-table-cell-role="th">s_방화</th>
-<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">g_상해</th>
+<th data-quarto-table-cell-role="th">g_폭행</th>
+<th data-quarto-table-cell-role="th">g_체포·감금</th>
+<th data-quarto-table-cell-role="th">g_협박</th>
+<th data-quarto-table-cell-role="th">g_약취·유인</th>
+<th data-quarto-table-cell-role="th">g_폭력행위등</th>
+<th data-quarto-table-cell-role="th">g_공갈</th>
+<th data-quarto-table-cell-role="th">g_손괴</th>
+<th data-quarto-table-cell-role="th">i_직무유기</th>
+<th data-quarto-table-cell-role="th">i_직권남용</th>
+<th data-quarto-table-cell-role="th">i_증수뢰</th>
+<th data-quarto-table-cell-role="th">i_통화</th>
 <th data-quarto-table-cell-role="th">i_문서·인장</th>
 <th data-quarto-table-cell-role="th">i_유가증권인지</th>
 <th data-quarto-table-cell-role="th">i_사기</th>
@@ -535,7 +595,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2197</td>
 <td>51</td>
 <td>236</td>
-<td>...</td>
+<td>5326</td>
+<td>20195</td>
+<td>168</td>
+<td>2462</td>
+<td>34</td>
+<td>1175</td>
+<td>685</td>
+<td>7452</td>
+<td>105</td>
+<td>96</td>
+<td>53</td>
+<td>230</td>
 <td>2202</td>
 <td>20</td>
 <td>45478</td>
@@ -559,7 +630,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2263</td>
 <td>48</td>
 <td>263</td>
-<td>...</td>
+<td>5649</td>
+<td>21334</td>
+<td>189</td>
+<td>2530</td>
+<td>27</td>
+<td>1205</td>
+<td>644</td>
+<td>7767</td>
+<td>92</td>
+<td>110</td>
+<td>57</td>
+<td>226</td>
 <td>1992</td>
 <td>25</td>
 <td>45020</td>
@@ -583,7 +665,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2333</td>
 <td>49</td>
 <td>235</td>
-<td>...</td>
+<td>5395</td>
+<td>21160</td>
+<td>180</td>
+<td>2474</td>
+<td>26</td>
+<td>1088</td>
+<td>604</td>
+<td>7681</td>
+<td>92</td>
+<td>110</td>
+<td>69</td>
+<td>208</td>
 <td>1893</td>
 <td>30</td>
 <td>45399</td>
@@ -607,7 +700,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2389</td>
 <td>45</td>
 <td>246</td>
-<td>...</td>
+<td>5396</td>
+<td>21181</td>
+<td>192</td>
+<td>2444</td>
+<td>30</td>
+<td>1163</td>
+<td>656</td>
+<td>7514</td>
+<td>114</td>
+<td>110</td>
+<td>64</td>
+<td>242</td>
 <td>2710</td>
 <td>32</td>
 <td>45752</td>
@@ -631,7 +735,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2547</td>
 <td>55</td>
 <td>212</td>
-<td>...</td>
+<td>5628</td>
+<td>22423</td>
+<td>165</td>
+<td>2408</td>
+<td>26</td>
+<td>1206</td>
+<td>593</td>
+<td>8591</td>
+<td>103</td>
+<td>104</td>
+<td>61</td>
+<td>212</td>
 <td>1991</td>
 <td>58</td>
 <td>46698</td>
@@ -655,7 +770,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2760</td>
 <td>59</td>
 <td>243</td>
-<td>...</td>
+<td>6267</td>
+<td>26997</td>
+<td>151</td>
+<td>2384</td>
+<td>15</td>
+<td>1662</td>
+<td>457</td>
+<td>9200</td>
+<td>36</td>
+<td>40</td>
+<td>21</td>
+<td>42</td>
 <td>829</td>
 <td>15</td>
 <td>22158</td>
@@ -679,7 +805,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2564</td>
 <td>49</td>
 <td>256</td>
-<td>...</td>
+<td>6105</td>
+<td>25977</td>
+<td>162</td>
+<td>2498</td>
+<td>29</td>
+<td>1705</td>
+<td>457</td>
+<td>8479</td>
+<td>39</td>
+<td>33</td>
+<td>22</td>
+<td>34</td>
 <td>673</td>
 <td>17</td>
 <td>19524</td>
@@ -694,14 +831,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
-<p>7 rows × 32 columns</p>
 </div>
 </div>
 </div>
 </section>
 <section id="범죄별-평일주말별-건수-합계-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="범죄별-평일주말별-건수-합계-그래프"><strong>[범죄별, 평일/주말별 건수 합계 그래프]</strong></h3>
-<div id="b987779e" class="cell" data-execution_count="4">
+<div id="444c9a6c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (1)발생 건수 합계 기준 그래프</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 연도 기준 범죄별 건수 합계</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">### 그래프 설정</span></span>
@@ -776,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="범죄별-요일별-건수-비율-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="범죄별-요일별-건수-비율-그래프"><strong>[범죄별 요일별 건수 비율 그래프]</strong></h3>
-<div id="75d50248" class="cell" data-execution_count="5">
+<div id="ed3f8846" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (2)연도별 범죄 발생 비율 파생변수 추가</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">## pd.options.display.float_format : 소수점 둘째 자리까지만 보이도록 설정</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pd.options.display.float_format <span class="op">=</span> <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span></span>
@@ -805,7 +941,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">s_강제추행</th>
 <th data-quarto-table-cell-role="th">s_기타 강간·강제추행등</th>
 <th data-quarto-table-cell-role="th">s_방화</th>
-<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">g_상해</th>
+<th data-quarto-table-cell-role="th">g_폭행</th>
+<th data-quarto-table-cell-role="th">g_체포·감금</th>
+<th data-quarto-table-cell-role="th">g_협박</th>
+<th data-quarto-table-cell-role="th">g_약취·유인</th>
+<th data-quarto-table-cell-role="th">g_폭력행위등</th>
+<th data-quarto-table-cell-role="th">g_공갈</th>
+<th data-quarto-table-cell-role="th">g_손괴</th>
+<th data-quarto-table-cell-role="th">i_직무유기</th>
+<th data-quarto-table-cell-role="th">i_직권남용</th>
+<th data-quarto-table-cell-role="th">i_증수뢰</th>
+<th data-quarto-table-cell-role="th">i_통화</th>
+<th data-quarto-table-cell-role="th">i_문서·인장</th>
+<th data-quarto-table-cell-role="th">i_유가증권인지</th>
+<th data-quarto-table-cell-role="th">i_사기</th>
+<th data-quarto-table-cell-role="th">i_횡령</th>
+<th data-quarto-table-cell-role="th">i_배임</th>
+<th data-quarto-table-cell-role="th">total_s</th>
+<th data-quarto-table-cell-role="th">total_g</th>
+<th data-quarto-table-cell-role="th">total_i</th>
 <th data-quarto-table-cell-role="th">total</th>
 <th data-quarto-table-cell-role="th">day_label</th>
 <th data-quarto-table-cell-role="th">total_s_year</th>
@@ -831,7 +986,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2197</td>
 <td>51</td>
 <td>236</td>
-<td>...</td>
+<td>5326</td>
+<td>20195</td>
+<td>168</td>
+<td>2462</td>
+<td>34</td>
+<td>1175</td>
+<td>685</td>
+<td>7452</td>
+<td>105</td>
+<td>96</td>
+<td>53</td>
+<td>230</td>
+<td>2202</td>
+<td>20</td>
+<td>45478</td>
+<td>7968</td>
+<td>802</td>
+<td>3529</td>
+<td>37497</td>
+<td>56954</td>
 <td>97980</td>
 <td>week</td>
 <td>26787.00</td>
@@ -855,7 +1029,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2263</td>
 <td>48</td>
 <td>263</td>
-<td>...</td>
+<td>5649</td>
+<td>21334</td>
+<td>189</td>
+<td>2530</td>
+<td>27</td>
+<td>1205</td>
+<td>644</td>
+<td>7767</td>
+<td>92</td>
+<td>110</td>
+<td>57</td>
+<td>226</td>
+<td>1992</td>
+<td>25</td>
+<td>45020</td>
+<td>7793</td>
+<td>761</td>
+<td>3619</td>
+<td>39345</td>
+<td>56076</td>
 <td>99040</td>
 <td>week</td>
 <td>26787.00</td>
@@ -879,7 +1072,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2333</td>
 <td>49</td>
 <td>235</td>
-<td>...</td>
+<td>5395</td>
+<td>21160</td>
+<td>180</td>
+<td>2474</td>
+<td>26</td>
+<td>1088</td>
+<td>604</td>
+<td>7681</td>
+<td>92</td>
+<td>110</td>
+<td>69</td>
+<td>208</td>
+<td>1893</td>
+<td>30</td>
+<td>45399</td>
+<td>7922</td>
+<td>725</td>
+<td>3693</td>
+<td>38608</td>
+<td>56448</td>
 <td>98749</td>
 <td>week</td>
 <td>26787.00</td>
@@ -903,7 +1115,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2389</td>
 <td>45</td>
 <td>246</td>
-<td>...</td>
+<td>5396</td>
+<td>21181</td>
+<td>192</td>
+<td>2444</td>
+<td>30</td>
+<td>1163</td>
+<td>656</td>
+<td>7514</td>
+<td>114</td>
+<td>110</td>
+<td>64</td>
+<td>242</td>
+<td>2710</td>
+<td>32</td>
+<td>45752</td>
+<td>7992</td>
+<td>730</td>
+<td>3659</td>
+<td>38576</td>
+<td>57746</td>
 <td>99981</td>
 <td>week</td>
 <td>26787.00</td>
@@ -927,7 +1158,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2547</td>
 <td>55</td>
 <td>212</td>
-<td>...</td>
+<td>5628</td>
+<td>22423</td>
+<td>165</td>
+<td>2408</td>
+<td>26</td>
+<td>1206</td>
+<td>593</td>
+<td>8591</td>
+<td>103</td>
+<td>104</td>
+<td>61</td>
+<td>212</td>
+<td>1991</td>
+<td>58</td>
+<td>46698</td>
+<td>8817</td>
+<td>790</td>
+<td>3834</td>
+<td>41040</td>
+<td>58834</td>
 <td>103708</td>
 <td>week</td>
 <td>26787.00</td>
@@ -951,7 +1201,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2760</td>
 <td>59</td>
 <td>243</td>
-<td>...</td>
+<td>6267</td>
+<td>26997</td>
+<td>151</td>
+<td>2384</td>
+<td>15</td>
+<td>1662</td>
+<td>457</td>
+<td>9200</td>
+<td>36</td>
+<td>40</td>
+<td>21</td>
+<td>42</td>
+<td>829</td>
+<td>15</td>
+<td>22158</td>
+<td>7819</td>
+<td>288</td>
+<td>4299</td>
+<td>47133</td>
+<td>31248</td>
 <td>82680</td>
 <td>weekend</td>
 <td>26787.00</td>
@@ -975,7 +1244,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>2564</td>
 <td>49</td>
 <td>256</td>
-<td>...</td>
+<td>6105</td>
+<td>25977</td>
+<td>162</td>
+<td>2498</td>
+<td>29</td>
+<td>1705</td>
+<td>457</td>
+<td>8479</td>
+<td>39</td>
+<td>33</td>
+<td>22</td>
+<td>34</td>
+<td>673</td>
+<td>17</td>
+<td>19524</td>
+<td>6802</td>
+<td>248</td>
+<td>4154</td>
+<td>45412</td>
+<td>27392</td>
 <td>76958</td>
 <td>weekend</td>
 <td>26787.00</td>
@@ -990,11 +1278,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
-<p>7 rows × 40 columns</p>
 </div>
 </div>
 </div>
-<div id="7aa0f92b" class="cell" data-execution_count="6">
+<div id="c16aefb4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (3)연도/요일별 범죄 발생 비율 변화 그래프</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 연도/요일별 범죄 발생 비율표 생성</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ratio_year_day <span class="op">=</span> crime.iloc[:, [<span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">7</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>]]</span>
@@ -1088,7 +1375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="요일-기준-범죄별-비율-비교-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="요일-기준-범죄별-비율-비교-그래프"><strong>[요일 기준 범죄별 비율 비교 그래프]</strong></h3>
-<div id="8cda908c" class="cell" data-execution_count="7">
+<div id="235e09d5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. 요일별 전체 범죄 발생 비율 그래프</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 요일별 전체 범죄 발생 비율표 생성</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>total_day <span class="op">=</span> crime.groupby(<span class="st">'day'</span>) <span class="op">\</span></span>
