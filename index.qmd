@@ -72,7 +72,7 @@ crime = crime.reindex([1, 2, 3, 4, 5, 6, 0,
                        15, 16, 17, 18, 19, 20, 14,
                        22, 23, 24, 25, 26, 27, 21,
                        29, 30, 31, 32, 33, 34, 28])
-#crime.head(7)
+crime.head(7)
 ```
 
 ### **[파생변수 추가]**
@@ -169,47 +169,43 @@ ratio_year_day.head(7)
 
 ## 강력범죄 연도/요일별 범죄 발생 비율 변화 그래프
 ### plt.xticks() : x축의 범위를 2018~2022로 설정
-sns.lineplot(data = ratio_year_day, x = 'year', y = 'ratio_s_day', hue = 'day')
-plt.xticks(np.arange(2018, 2023))
+sns.lineplot(data = ratio_year_day, x = 'day', y = 'ratio_s_day', hue = 'year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
-plt.title("강력범죄 연도별 범죄율 비교 그래프")
+plt.title("강력범죄 요일별 범죄율 비교 그래프")
 plt.show()
 plt.clf()
 
 ## 폭력범죄 연도/요일별 범죄 발생 비율 변화 그래프
-sns.lineplot(data = ratio_year_day, x = 'year', y = 'ratio_g_day', hue = 'day')
-plt.xticks(np.arange(2018, 2023))
+sns.lineplot(data = ratio_year_day, x = 'day', y = 'ratio_g_day', hue = 'year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
-plt.title("폭력범죄 연도별 범죄율 비교 그래프")
+plt.title("폭력범죄 요일별 범죄율 비교 그래프")
 plt.show()
 plt.clf()
 
 ## 지능범죄 연도/요일별 범죄 발생 비율 변화 그래프
-sns.lineplot(data = ratio_year_day, x = 'year', y = 'ratio_i_day', hue = 'day')
-plt.xticks(np.arange(2018, 2023))
+sns.lineplot(data=ratio_year_day, x='day', y='ratio_i_day', hue='year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
-plt.title("지능범죄 연도별 범죄율 비교 그래프")
+plt.title("지능범죄 요일별 범죄율 비교 그래프")
 plt.show()
 plt.clf()
 
 ## 전체 범죄 연도/요일별 범죄 발생 비율 변화 그래프
-sns.lineplot(data = ratio_year_day, x = 'year', y = 'ratio_day', hue = 'day')
-plt.xticks(np.arange(2018, 2023))
+sns.lineplot(data=ratio_year_day, x='day', y='ratio_day', hue='year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
-plt.title("전체 범죄 연도별 범죄율 비교 그래프")
+plt.title("전체 범죄 요일별 범죄율 비교 그래프")
 plt.show()
 plt.clf()
 ```
 ::: {.callout-important icon=false}
 ## 위 그래프의 한계
 
-범죄별 그래프로 각 범죄의 연도 기준 요일별 발생 비율은 파악할 수 있으나,
+범죄별 그래프로 각 범죄의 요일별 발생 비율은 파악할 수 있으나,
 : **지능범죄의 주말 발생 건수가 현저히 낮아 전체 그래프에서 왜곡이 발생**
-: 따라서, 연도 기준 전체 그래프로 비교하는데 오류가 있다는 판단
+: 따라서, 연도 기준으로 데이터를 비교하는데 오류가 있다는 판단
 :::
 
 
