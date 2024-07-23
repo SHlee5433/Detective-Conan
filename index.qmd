@@ -7,7 +7,7 @@ jupyter: python3
 
 ::: {.callout-note icon=false}
 
-## 가설
+## 가설 
 
 **평일이 상대적으로 안전할 것이다.**
 
