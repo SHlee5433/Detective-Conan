@@ -150,8 +150,22 @@ for i in ["_s", "_g" ,"_i" ,""]:
     for j in range(2018, 2023):
         crime.loc[crime['year'] == j, 'total'+ i +'_year'] = sum(crime.loc[crime['year'] == j,'total' + i])
     crime['ratio'+ i +'_day'] = crime['total' + i] / crime['total'+ i +'_year'] * 100
+
+## 아래 코드도 같은 결과 
+### crime = crime.assign(
+###               total_s_year = lambda x: x.groupby('year')['total_s'].transform('sum'), 
+###               ratio_s_day = lambda x: x['total_s'] / x['total_s_year'] * 100,
+###
+###               total_g_year = lambda x: x.groupby('year')['total_g'].transform('sum'),
+###               ratio_g_day = lambda x: x['total_g'] / x['total_g_year'] * 100,
+###
+###               total_i_year = lambda x: x.groupby('year')['total_i'].transform('sum'),
+###               ratio_i_day = lambda x: x['total_i'] / x['total_i_year'] * 100,
+###
+###               total_year = lambda x: x.groupby('year')['total'].transform('sum'),
+###               ratio_day = lambda x: x['total'] / x['total_year'] * 100)
     
-crime.head(7)
+crime.head(10)
 ```
 
 

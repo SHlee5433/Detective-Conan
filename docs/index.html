@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="데이터-로드" class="level3">
 <h3 class="anchored" data-anchor-id="데이터-로드"><strong>[데이터 로드]</strong></h3>
-<div id="719af10a" class="cell" data-execution_count="1">
+<div id="b5e913fb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. 패키지 로드</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="변수명-변경" class="level3">
 <h3 class="anchored" data-anchor-id="변수명-변경"><strong>[변수명 변경]</strong></h3>
-<div id="2c82aa66" class="cell" data-execution_count="2">
+<div id="93019572" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 열 이름, 원소 이름 변경</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 열 이름 변경</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">### 강력범죄는 s_, 폭력범죄는 g_, 지능범죄는 i_로 시작하도록 변경</span></span>
@@ -525,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="파생변수-추가" class="level3">
 <h3 class="anchored" data-anchor-id="파생변수-추가"><strong>[파생변수 추가]</strong></h3>
-<div id="8ef121aa" class="cell" data-execution_count="3">
+<div id="9414fc85" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 파생변수 추가</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 범죄별 건수 합계 및 총 범죄 건수 합계 파생변수</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>crime <span class="op">=</span> crime.assign(</span>
@@ -837,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="범죄별-평일주말별-건수-합계-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="범죄별-평일주말별-건수-합계-그래프"><strong>[범죄별, 평일/주말별 건수 합계 그래프]</strong></h3>
-<div id="444c9a6c" class="cell" data-execution_count="4">
+<div id="01f093ac" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (1)발생 건수 합계 기준 그래프</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 연도 기준 범죄별 건수 합계</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">### 그래프 설정</span></span>
@@ -912,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="범죄별-요일별-건수-비율-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="범죄별-요일별-건수-비율-그래프"><strong>[범죄별 요일별 건수 비율 그래프]</strong></h3>
-<div id="ed3f8846" class="cell" data-execution_count="5">
+<div id="e3660d4c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (2)연도별 범죄 발생 비율 파생변수 추가</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">## pd.options.display.float_format : 소수점 둘째 자리까지만 보이도록 설정</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pd.options.display.float_format <span class="op">=</span> <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span></span>
@@ -921,8 +921,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2018</span>, <span class="dv">2023</span>):</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        crime.loc[crime[<span class="st">'year'</span>] <span class="op">==</span> j, <span class="st">'total'</span><span class="op">+</span> i <span class="op">+</span><span class="st">'_year'</span>] <span class="op">=</span> <span class="bu">sum</span>(crime.loc[crime[<span class="st">'year'</span>] <span class="op">==</span> j,<span class="st">'total'</span> <span class="op">+</span> i])</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    crime[<span class="st">'ratio'</span><span class="op">+</span> i <span class="op">+</span><span class="st">'_day'</span>] <span class="op">=</span> crime[<span class="st">'total'</span> <span class="op">+</span> i] <span class="op">/</span> crime[<span class="st">'total'</span><span class="op">+</span> i <span class="op">+</span><span class="st">'_year'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>crime.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">## 아래 코드도 같은 결과 </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">### crime = crime.assign(</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">###               total_s_year = lambda x: x.groupby('year')['total_s'].transform('sum'), </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">###               ratio_s_day = lambda x: x['total_s'] / x['total_s_year'] * 100,</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">###               total_g_year = lambda x: x.groupby('year')['total_g'].transform('sum'),</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">###               ratio_g_day = lambda x: x['total_g'] / x['total_g_year'] * 100,</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">###               total_i_year = lambda x: x.groupby('year')['total_i'].transform('sum'),</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">###               ratio_i_day = lambda x: x['total_i'] / x['total_i_year'] * 100,</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">###               total_year = lambda x: x.groupby('year')['total'].transform('sum'),</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">###               ratio_day = lambda x: x['total'] / x['total_year'] * 100)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>crime.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
@@ -1275,13 +1289,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>659096.00</td>
 <td>11.68</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2019</td>
+<td>mon</td>
+<td>45</td>
+<td>70</td>
+<td>113</td>
+<td>686</td>
+<td>99</td>
+<td>2272</td>
+<td>53</td>
+<td>181</td>
+<td>4908</td>
+<td>19966</td>
+<td>189</td>
+<td>3013</td>
+<td>40</td>
+<td>1126</td>
+<td>818</td>
+<td>7974</td>
+<td>108</td>
+<td>126</td>
+<td>46</td>
+<td>186</td>
+<td>2130</td>
+<td>22</td>
+<td>52740</td>
+<td>8559</td>
+<td>859</td>
+<td>3519</td>
+<td>38034</td>
+<td>64776</td>
+<td>106329</td>
+<td>week</td>
+<td>26476.00</td>
+<td>13.29</td>
+<td>287913.00</td>
+<td>13.21</td>
+<td>381533.00</td>
+<td>16.98</td>
+<td>695922.00</td>
+<td>15.28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2019</td>
+<td>tue</td>
+<td>48</td>
+<td>68</td>
+<td>116</td>
+<td>734</td>
+<td>109</td>
+<td>2306</td>
+<td>45</td>
+<td>181</td>
+<td>5063</td>
+<td>20766</td>
+<td>170</td>
+<td>3039</td>
+<td>41</td>
+<td>1100</td>
+<td>740</td>
+<td>7634</td>
+<td>123</td>
+<td>118</td>
+<td>42</td>
+<td>169</td>
+<td>1971</td>
+<td>16</td>
+<td>51876</td>
+<td>8128</td>
+<td>730</td>
+<td>3607</td>
+<td>38553</td>
+<td>63173</td>
+<td>105333</td>
+<td>week</td>
+<td>26476.00</td>
+<td>13.62</td>
+<td>287913.00</td>
+<td>13.39</td>
+<td>381533.00</td>
+<td>16.56</td>
+<td>695922.00</td>
+<td>15.14</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2019</td>
+<td>wed</td>
+<td>40</td>
+<td>62</td>
+<td>105</td>
+<td>719</td>
+<td>92</td>
+<td>2358</td>
+<td>49</td>
+<td>209</td>
+<td>5038</td>
+<td>20981</td>
+<td>171</td>
+<td>3072</td>
+<td>34</td>
+<td>1086</td>
+<td>757</td>
+<td>7766</td>
+<td>106</td>
+<td>97</td>
+<td>52</td>
+<td>187</td>
+<td>1840</td>
+<td>30</td>
+<td>51225</td>
+<td>8318</td>
+<td>787</td>
+<td>3634</td>
+<td>38905</td>
+<td>62642</td>
+<td>105181</td>
+<td>week</td>
+<td>26476.00</td>
+<td>13.73</td>
+<td>287913.00</td>
+<td>13.51</td>
+<td>381533.00</td>
+<td>16.42</td>
+<td>695922.00</td>
+<td>15.11</td>
+</tr>
 </tbody>
 </table>
 
 </div>
 </div>
 </div>
-<div id="c16aefb4" class="cell" data-execution_count="6">
+<div id="7bde1b17" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. (3)연도/요일별 범죄 발생 비율 변화 그래프</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 연도/요일별 범죄 발생 비율표 생성</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ratio_year_day <span class="op">=</span> crime.iloc[:, [<span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">7</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>]]</span>
@@ -1375,7 +1518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="요일-기준-범죄별-비율-비교-그래프" class="level3">
 <h3 class="anchored" data-anchor-id="요일-기준-범죄별-비율-비교-그래프"><strong>[요일 기준 범죄별 비율 비교 그래프]</strong></h3>
-<div id="235e09d5" class="cell" data-execution_count="7">
+<div id="54cf9f3e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. 요일별 전체 범죄 발생 비율 그래프</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 요일별 전체 범죄 발생 비율표 생성</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>total_day <span class="op">=</span> crime.groupby(<span class="st">'day'</span>) <span class="op">\</span></span>
