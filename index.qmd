@@ -143,20 +143,11 @@ plt.clf()
 ## pd.options.display.float_format : 소수점 둘째 자리까지만 보이도록 설정
 pd.options.display.float_format = '{:.2f}'.format
 
-## transform() : 연도별 비율을 구하기 위한 연도별 합계 구하기
-crime = crime.assign(
-    total_s_year = lambda x: x.groupby('year')['total_s'].transform('sum'), # 강력범죄 발생 건수 합계
-    ratio_s_day = lambda x: x['total_s'] / x['total_s_year'] * 100, # 강력범죄 발생 비율
+for i in ["_s", "_g" ,"_i" ,""]:
+    for j in range(2018, 2023):
+        crime.loc[crime['year'] == j, 'total'+ i +'_year'] = sum(crime.loc[crime['year'] == j,'total' + i])
+    crime['ratio'+ i +'_day'] = crime['total' + i] / crime['total'+ i +'_year'] * 100
     
-    total_g_year = lambda x: x.groupby('year')['total_g'].transform('sum'), # 폭력범죄 발생 건수 합계
-    ratio_g_day = lambda x: x['total_g'] / x['total_g_year'] * 100, # 폭력범죄 발생 비율
-    
-    total_i_year = lambda x: x.groupby('year')['total_i'].transform('sum'), # 지능범죄 발생 건수 합계
-    ratio_i_day = lambda x: x['total_i'] / x['total_i_year'] * 100, # 지능범죄 발생 비율
-    
-    total_year = lambda x: x.groupby('year')['total'].transform('sum'), # 전체 범죄 발생 건수 합계
-    ratio_day = lambda x: x['total'] / x['total_year'] * 100) # 전체 범죄 발생 비율
-
 crime.head(7)
 ```
 
