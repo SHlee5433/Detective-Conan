@@ -185,7 +185,7 @@ plt.show()
 plt.clf()
 
 ## 지능범죄 연도/요일별 범죄 발생 비율 변화 그래프
-sns.lineplot(data=ratio_year_day, x='day', y='ratio_i_day', hue='year')
+sns.lineplot(data = ratio_year_day, x = 'day', y = 'ratio_i_day', hue = 'year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
 plt.title("지능범죄 요일별 범죄율 비교 그래프")
@@ -193,7 +193,7 @@ plt.show()
 plt.clf()
 
 ## 전체 범죄 연도/요일별 범죄 발생 비율 변화 그래프
-sns.lineplot(data=ratio_year_day, x='day', y='ratio_day', hue='year')
+sns.lineplot(data = ratio_year_day, x = 'day', y = 'ratio_day', hue = 'year')
 plt.xlabel("연도")
 plt.ylabel("비율(%)")
 plt.title("전체 범죄 요일별 범죄율 비교 그래프")
@@ -225,9 +225,9 @@ total_day = total_day.assign(
     지능범죄 = lambda x: x['total_i'] / sum(x['total_i']) * 100,
     총_범죄율 = lambda x: x['total'] / sum(x['total']) * 100)
 
-total_day = total_day.reindex(index=['mon','tue','wed','thu','fri','sat','sun'])
+total_day = total_day.reindex(index=['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
 
-ratio_total_day = total_day.iloc[:,4:]
+ratio_total_day = total_day.iloc[:, 4:]
 ratio_total_day
 
 ## 요일별 전체 범죄 발생 비율 그래프 생성
