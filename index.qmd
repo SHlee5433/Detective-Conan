@@ -15,7 +15,7 @@ jupyter: python3
 
 ::: {.callout-tip icon=false}
 
-## 범죄의 정의
+## [범죄의 정의](https://docs.google.com/spreadsheets/d/1boOUSKywiaQG2INgUrAhlV5O-tHBQDNVLQ-QvdCr55U/edit?gid=1615286912#gid=1615286912)
 
 * **강력범죄** : 생명, 신체, 자유에 심각한 위협을 가하는 범죄
 * **폭력범죄** : 다른 사람에게 신체적 상해를 입히거나 신체적 위협을 가하는 범죄
